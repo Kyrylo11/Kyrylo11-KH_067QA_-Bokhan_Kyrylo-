@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Main {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
@@ -25,6 +25,6 @@ public class Main {
         firstProduct.click();
         WebElement buy = driver.findElement(By.xpath("///app-product-buy-btn/app-buy-button/button"));
         buy.click();
-        //driver.quit();
+        driver.quit();
     }
 }
