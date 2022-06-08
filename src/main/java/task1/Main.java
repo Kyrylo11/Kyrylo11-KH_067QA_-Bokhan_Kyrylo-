@@ -23,8 +23,8 @@ public class Main {
         searchButton.click();
         WebElement firstProduct = driver.findElement(By.xpath("(//span[@class='goods-tile__title'])"));
         firstProduct.click();
-        WebElement buy = driver.findElement(By.xpath("///app-product-buy-btn/app-buy-button/button"));
-        buy.click();
+        WebElement buyButton = driver.findElement(By.xpath("///app-product-buy-btn/app-buy-button/button"));
+        buyButton.click();
         driver.quit();
     }
 }
