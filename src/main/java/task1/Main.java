@@ -7,25 +7,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Main {
     public static void main(String[] args) {
-        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
-        WebElement searchBox = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
-        searchBox.sendKeys("rozetka ua");
-        searchBox.submit();
-        WebElement first_link = driver.findElement(By.xpath("(//h3[@class='LC20lb MBeuO DKV0Md'])[1]"));
-        first_link.click();
-        WebElement searchBoxOnLink = driver.findElement(By.xpath("//input[@name='search']"));
-        searchBoxOnLink.sendKeys("airpods pro");
-        WebElement search = driver.findElement(By.xpath("//button [@class='button button_color_green button_size_" +
-                "medium search-form__submit ng-star-inserted']"));
-        search.click();
-        WebElement first_product = driver.findElement(By.xpath("(//span[@class='goods-tile__title'])[1]"));
-        first_product.click();
-        WebElement buy = driver.findElement(By.xpath("//button[@class='buy-button button button--with-icon" +
-                " button--green button--medium ng-star-inserted']"));
+        WebElement search = driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+        search.sendKeys("rozetka ua");
+        search.submit();
+        WebElement first = driver.findElement(By.xpath("(//h3[@class='LC20lb MBeuO DKV0Md'])"));
+        first.click();
+        WebElement searchLink = driver.findElement(By.xpath("//input[@name='search']"));
+        searchLink.sendKeys("airpods pro");
+        WebElement searchButton = driver.findElement(By.xpath("//div[@class='header-search js-app-search-suggest']" +
+                "/form/button"));
+        searchButton.click();
+        WebElement firstProduct = driver.findElement(By.xpath("(//span[@class='goods-tile__title'])"));
+        firstProduct.click();
+        WebElement buy = driver.findElement(By.xpath("///app-product-buy-btn/app-buy-button/button"));
         buy.click();
-        driver.quit();
+        //driver.quit();
     }
 }
