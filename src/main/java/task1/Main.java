@@ -23,7 +23,8 @@ public class Main {
         searchButton.click();
         WebElement firstProduct = driver.findElement(By.xpath("(//span[@class='goods-tile__title'])"));
         firstProduct.click();
-        WebElement emptyClick = driver.findElement(By.xpath("//div[@class='product-about__text']/span"));
+        WebElement emptyClick = driver.findElement(By.xpath("//button [@class='simple-slider__control " +
+                "simple-slider__control--next']"));
         emptyClick.click();
         WebElement buyButton = driver.findElement(By.xpath("//app-product-buy-btn/app-buy-button/button"));
         buyButton.click();
