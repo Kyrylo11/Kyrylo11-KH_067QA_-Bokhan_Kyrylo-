@@ -10,18 +10,20 @@ import java.time.Duration;
 
 public class Second {
     public static void main(String[] args) {
-        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         String url = "https://www.google.com/";
         String query = "rozetka ua";
+        String brand = "ASUS";
 
         By searchFieldGoogle = By.xpath("//input[@class='gLFyf gsfi']");
         By firstElementGoogle = By.xpath("(//h3[@class='LC20lb MBeuO DKV0Md'])");
         By katalog = By.xpath("//button[@id='fat-menu']");
-        By checkboxSeler = By.xpath("//a[@class='checkbox-filter__link']");
         By firstElementRozetka = By.xpath("//span[@class='goods-tile__title']");
         By cards = By.xpath("//a[@href='https://hard.rozetka.com.ua/videocards/c80087/']");
+        By productionAsus = By.xpath("//a[@data-id='ASUS']");
+        By searchProduction = By.xpath("//input[@name='searchline']");
 
         driver.get(url);
         driver.manage().window().maximize();
@@ -31,9 +33,10 @@ public class Second {
         driver.findElement(firstElementGoogle).click();
         driver.findElement(katalog).click();
         driver.findElement(cards).click();
-        driver.findElement(checkboxSeler).click();
+        driver.findElement(searchProduction).sendKeys(brand);
+        driver.findElement(productionAsus).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(firstElementRozetka));
         driver.findElement(firstElementRozetka).click();
-        driver.quit();
+        //driver.quit();
     }
 }
