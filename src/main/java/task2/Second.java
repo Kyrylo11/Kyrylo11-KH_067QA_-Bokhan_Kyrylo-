@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class Second {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         String url = "https://www.google.com/";
@@ -37,6 +37,6 @@ public class Second {
         driver.findElement(productionAsus).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(firstElementRozetka));
         driver.findElement(firstElementRozetka).click();
-        //driver.quit();
+        driver.quit();
     }
 }
