@@ -21,7 +21,7 @@ public class Second {
         By firstElementGoogle = By.xpath("(//h3[@class='LC20lb MBeuO DKV0Md'])");
         By katalog = By.xpath("//button[@id='fat-menu']");
         By firstElementRozetka = By.xpath("//span[@class='goods-tile__title']");
-        By cards = By.xpath("//a[@href='https://hard.rozetka.com.ua/videocards/c80087/']");
+        By cards = By.xpath("//a[contains(@href,'videocards/c80087/')]");
         By productionAsus = By.xpath("//a[@data-id='ASUS']");
         By searchProduction = By.xpath("//input[@name='searchline']");
 

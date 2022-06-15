@@ -21,7 +21,7 @@ public class First {
         By katalog = By.xpath("//button[@id='fat-menu']");
         By checkboxSeler = By.xpath("//a[@class='checkbox-filter__link']");
         By firstElementRozetka = By.xpath("//span[@class='goods-tile__title']");
-        By monitors = By.xpath("//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']");
+        By monitors = By.xpath("//a[contains(@href,'monitors/c80089/')]");
 
         driver.get(url);
         driver.manage().window().maximize();
