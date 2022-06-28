@@ -1,34 +1,54 @@
 package Task5;
 
-import Task3.BaseTest;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-
-import java.util.List;
+import pages.KatalogPage;
+import pages.SearchResultsPage;
+import pages.ToUsersPage;
 
 public class SecondClass extends BaseTest {
+    private By smartphones = By.xpath("//main[@role = 'main']//li[@data-category='32014']");
+
     @Test(groups = {"positive"})
     public void firstTest() {
-        Actions actionProvider = new Actions(driver);
-        By smartphones = By.xpath("//main[@role = 'main']//li[@data-category='32014']");
-        By productsTable = By.xpath("//div[@class='listing__body-wrap image-switch']");
         By iPhone11 = By.xpath("//main[@role = 'main']//a[contains(@href,'mobilnye_telefony_apple-iphone-11.html')]");
-        WebElement element = driver.findElement(smartphones);
-        WebElement iphone = driver.findElement(iPhone11);
-        actionProvider.moveToElement(element).moveToElement(iphone).click().build().perform();
-        List<WebElement> elementList = driver.findElements(productsTable);
-        Assert.assertNotNull(elementList);
+
+        SearchResultsPage searchRes = new KatalogPage(driver)
+                .moveToElementInElement(smartphones, iPhone11);
+        searchRes.getResultProducts();
+        Assert.assertNotNull(searchRes.getResultsWebElements());
     }
 
     @Test(groups = {"positive"})
     public void secondTest() {
-        By smartphones = By.xpath("//main[@role = 'main']//li[@data-category='32014']");
-        By categoryTable = By.xpath("//div[@class='category']");
-        driver.findElement(smartphones).click();
-        List<WebElement> elementList = driver.findElements(categoryTable);
-        Assert.assertNotNull(elementList);
+        KatalogPage searchRes = new KatalogPage(driver)
+                .clickElement(smartphones);
+        Assert.assertNotNull(searchRes.getKatalogResultPage());
+    }
+
+    @Test(groups = {"negative"}, expectedExceptions = {RuntimeException.class})
+    public void thirdTest() {
+        By iPhone15 = By.xpath("//main[@role = 'main']//a[contains(@href,'mobilnye_telefony_apple-iphone-15.html')]");
+
+        SearchResultsPage searchRes = new KatalogPage(driver)
+                .moveToElementInElement(smartphones, iPhone15);
+        searchRes.getResultProducts();
+    }
+
+    @Test(groups = {"positive"})
+    public void fourthTest() {
+        ToUsersPage toUsersPage = new ToUsersPage(driver)
+                .clickUsersButton()
+                .clickInformationAboutPay();
+        Assert.assertNotNull(toUsersPage.getResultsWebElements());
+    }
+
+    @Test(groups = {"positive"})
+    public void fifthTest() {
+        ToUsersPage toUsersPage = new ToUsersPage(driver)
+                .clickUsersButton()
+                .clickInformationAboutUs();
+        Assert.assertNotNull(toUsersPage.getResultsWebElements());
     }
 }
