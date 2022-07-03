@@ -16,6 +16,8 @@
         <allure-testng.version>2.18.0</allure-testng.version>
         <aspectj.version>1.8.10</aspectj.version>
         <maven.surefire.plugin.version>2.20</maven.surefire.plugin.version>
+        <rest-assured.version>5.1.1</rest-assured.version>
+        <json-schema-validator.version>4.3.3</json-schema-validator.version>
     </properties>
 
     <dependencies>
@@ -34,6 +36,17 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${json-schema-validator.version}</version>
+        </dependency>
+
 
     </dependencies>
 

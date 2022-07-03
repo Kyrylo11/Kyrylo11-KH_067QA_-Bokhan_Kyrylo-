@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "token"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "token": {
+      "type": "string"
+    }
+  },
+  "examples": [{
+    "id": 4,
+    "token": "QpwL5tke4Pnpja7X4"
+  }]
+}
